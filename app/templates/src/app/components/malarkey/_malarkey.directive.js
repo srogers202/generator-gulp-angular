@@ -6,40 +6,51 @@
     .directive('acmeMalarkey', acmeMalarkey);
 
   /** @ngInject */
-  function acmeMalarkey(malarkey) {
-    return {
+  function acmeMalarkey(malarkey, $timeout) {
+    var directive = {
       restrict: 'E',
       scope: {
-        extraValues: '=',
+        acmeMalarkeyValue: '=',
+        acmeMalarkeyValues: '='
       },
       template: '<div></div>',
-      link: linkFunc,
-      controller: 'MalarkeyController',
-      controllerAs: 'vm'
+      link: linkFunc
     };
-  }
 
-  function linkFunc(scope, el, attr, vm) {
-    var watcher;
-    var typist = malarkey(el[0], {
-      typeSpeed: 40,
-      deleteSpeed: 40,
-      pauseDelay: 800,
-      loop: true,
-      postfix: ' '
-    });
+    return directive;
 
-    angular.forEach(scope.extraValues, function(value) {
-      typist.type(value).pause().delete();
-    });
+    function linkFunc(scope, el, attr, vm) {
+      var speed = 40;
+      var stop = false;
 
-    watcher = scope.$watch('vm.contributors', function(current, original) {
-      angular.forEach(vm.contributors, function(contributor) {
-        typist.type(contributor.login).pause().delete();
+      var typist = malarkey(el[0], {
+        typeSpeed: speed,
+        deleteSpeed: speed,
+        pauseDelay: speed * 20,
+        loop: true,
+        postfix: ' '
       });
-    });
 
-    scope.$on('$destroy', watcher);
+      scope.$watchCollection('acmeMalarkeyValues', function(values) {
+        angular.forEach(values, function(value) {
+          typist.type(value.title).pause().delete();
+        });
+      });
+
+      $timeout(refreshTick);
+
+      function refreshTick() {
+        scope.acmeMalarkeyValue = el.html().substring(11).trim();
+
+        if(!stop) {
+          $timeout(refreshTick, speed);
+        }
+      }
+
+      scope.$on('$destroy', function() {
+        stop = true;
+      });
+    }
   }
 
 })();

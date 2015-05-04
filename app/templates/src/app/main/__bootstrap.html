@@ -8,17 +8,18 @@
       <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
       Always a pleasure scaffolding your apps.
     </p>
+<% if (props.jsPreprocessor.key === 'none') { %>
+    <p class="lead">
+      You've got an app with...
+      <acme-malarkey acme-malarkey-value="main.typistValue" acme-malarkey-values="main.awesomeThings" />
+    </p>
+<% } %>
     <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
   </div>
-<% if (props.jsPreprocessor.key === 'none') { %>
-  <div class="row">
-    <acme-malarkey extra-values="['Yeoman', 'Gulp', 'Angular']" />
-  </div>
-<% } %>
 
   <div class="row">
     <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
-      <div class="thumbnail">
+      <div class="thumbnail" ng-class="{highlighted: awesomeThing.title.indexOf(main.typistValue) !== -1}">
         <img class="pull-right" ng-src="assets/images/{{awesomeThing.logo}}" alt="{{awesomeThing.title}}">
         <div class="caption">
           <h3>{{awesomeThing.title}}</h3>

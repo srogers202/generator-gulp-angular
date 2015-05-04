@@ -7,29 +7,25 @@
 
   /** @ngInject */
   function githubApi($log, $http) {
-    var apiHost = 'https://api.github.com/repos/Swiip/generator-gulp-angular';
+    var techsUrl = 'https://rawgit.com/Swiip/generator-gulp-angular/master/app/techs.json';
 
     var service = {
-      apiHost: apiHost,
-      getContributors: getContributors
+      techsUrl: techsUrl,
+      getTechs: getTechs
     };
 
     return service;
 
-    function getContributors(limit) {
-      if (!limit) {
-        limit = 30;
-      }
+    function getTechs(limit) {
+      return $http.get(techsUrl)
+        .then(getTechsComplete)
+        .catch(getTechsFailed);
 
-      return $http.get(apiHost + '/contributors?per_page=' + limit)
-        .then(getContributorsComplete)
-        .catch(getContributorsFailed);
-
-      function getContributorsComplete(response) {
+      function getTechsComplete(response) {
         return response.data;
       }
 
-      function getContributorsFailed(error) {
+      function getTechsFailed(error) {
         $log.error('XHR Failed for getContributors.\n' + angular.toJson(error.data, true));
       }
     }
