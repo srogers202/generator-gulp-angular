@@ -15,6 +15,7 @@ var compiledTemplatesDir = path.join(__dirname, 'tmp/templates/');
 var compiledTemplatesSuffix = '-template.js';
 var sourceHeader = 'module.exports = function(locals) {\n';
 var sourceFooter = '\n};';
+var workDir = path.join(__dirname, 'tmp/work/');
 
 /**
  * That's not a code I'm very proud of.
@@ -49,6 +50,21 @@ function compile(fileName) {
     var sourceContent = sourceHeader + beautify(compileEjs(content), { indent_size: 2 }) + sourceFooter;
     sourceContent = sourceContent.replace('with(locals || {})', 'with(locals)');
     return fs.writeFile(destinationFilePath, sourceContent);
+  });
+}
+
+function render(fileName, model) {
+  var sourceFilePath = templatesDir + fileName;
+  var destinationFilePath = workDir + fileName.replace('_', '');
+  var destinationDir = path.dirname(destinationFilePath);
+
+  return Promise.all([
+    fs.readFile(sourceFilePath),
+    mkdirp(destinationDir)
+  ]).then(function(results) {
+    var sourceFileContent = results[0].toString();
+    var result = ejs.render(sourceFileContent, model);
+    return fs.writeFile(destinationFilePath, result);
   });
 }
 
@@ -123,6 +139,7 @@ function deps() {
 module.exports = {
   compile: compile,
   load: load,
+  render: render,
   prepare: prepare,
   deps: deps
 };
