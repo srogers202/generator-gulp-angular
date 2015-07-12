@@ -23,12 +23,15 @@ module <%- appName %> {
     .constant('toastr', toastr)
     .constant('moment', moment)
     .config(config)
-<% if (props.router.key !== 'none') { %>
+<% if (props.router.key !== 'none') { -%>
     .config(routerConfig)
-<% } %>
+<% } -%>
     .run(runBlock)
     .service('githubContributor', GithubContributor)
     .service('webDevTec', WebDevTecService)
+<% if (props.router.key === 'new-router') { -%>
+    .controller('RouterController', RouterController)
+<% } -%>
     .controller('MainController', MainController)
     .directive('acmeNavbar', acmeNavbar)
     .directive('acmeMalarkey', acmeMalarkey);
