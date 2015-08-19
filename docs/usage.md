@@ -69,17 +69,11 @@ The root directory generated with default paths configuration for application wi
 │   │   │   └──  githubContributor/
 │   │   │   │   └──  githubContributor.service.js
 │   │   │   │
-│   │   │   └──  malarkey/
-│   │   │   │   ├──  malarkey.directive.js
-│   │   │   │   └──  malarkey.(scss|styl|less|css)
 │   │   │   │
 │   │   │   └──  navbar/
 │   │   │   │   ├──  navbar.directive.(js|ts|coffee)
 │   │   │   │   ├──  navbar.html
 │   │   │   │   └──  navbar.(scss|styl|less|css)
-│   │   │   │
-│   │   │   └──  webDevTec/
-│   │   │       └──  webDevTec.service.js
 │   │   │
 │   │   ├──  main/
 │   │   │   ├──  main.controller.(js|ts|coffee)

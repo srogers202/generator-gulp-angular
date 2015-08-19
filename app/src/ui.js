@@ -28,12 +28,6 @@ module.exports = function(GulpAngularGenerator) {
     });
 
     this.files.push({
-      src: 'src/app/components/malarkey/__malarkey.' + this.props.cssPreprocessor.extension,
-      dest: 'src/app/components/malarkey/malarkey.' + this.props.cssPreprocessor.extension,
-      template: false
-    });
-
-    this.files.push({
       src: 'src/app/components/navbar/__navbar.' + this.props.cssPreprocessor.extension,
       dest: 'src/app/components/navbar/navbar.' + this.props.cssPreprocessor.extension,
       template: false
