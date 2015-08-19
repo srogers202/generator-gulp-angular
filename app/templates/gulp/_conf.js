@@ -41,3 +41,11 @@ exports.errorHandler = function(title) {
     this.emit('end');
   };
 };
+
+/**
+ *  Set up proxies
+ */
+exports.proxies = [
+    {'uri': '/auth', 'endpoint': 'http://localhost:3000'},
+    {'uri': '/api', 'endpoint': 'http://localhost:3000'}
+];
