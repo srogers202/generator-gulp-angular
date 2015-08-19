@@ -5,7 +5,7 @@
     "message": "Which version of Angular do you want?",
     "choices": [
       {
-        "value": "~1.4.2",
+        "value": "~1.4.4",
         "name": "1.4.x (stable)"
       }
     ]
@@ -120,16 +120,23 @@
   },
   {
     "type": "list",
-    "name": "cssPreprocessor",
-    "message": "Which CSS preprocessor do you want?",
+    "name": "foundationComponents",
+    "message": "How do you want to implement your Foundation components?",
     "choices": [
       {
         "value": {
-          "key": "node-sass",
-          "extension": "scss"
+          "key": "none",
+          "module": null
         },
-        "name": "Sass (Node), Node.js binding to libsass, the C version of the popular stylesheet preprocessor, Sass."
-      },
+        "name": "No JavaScript, just CSS"
+      }
+    ]
+  },
+  {
+    "type": "list",
+    "name": "cssPreprocessor",
+    "message": "Which CSS preprocessor do you want?",
+    "choices": [
       {
         "value": {
           "key": "less",
