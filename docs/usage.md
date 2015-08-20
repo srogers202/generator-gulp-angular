@@ -96,7 +96,7 @@ The root directory generated with default paths configuration for application wi
 │   │   │
 │   │   ├── views/
 │   │   │   └── main/
-│   │   │       ├──  main.controller.(js|ts|coffee)
+│   │   │       ├──  main.controller.js
 │   │   │       ├──  main.controller.spec.js
 │   │   │       └──  main.html
 │   │   │
