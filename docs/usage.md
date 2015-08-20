@@ -65,27 +65,47 @@ The root directory generated with default paths configuration for application wi
 │
 ├──  src/
 │   ├──  app/
-│   │   ├──  components/
-│   │   │   └──  githubContributor/
-│   │   │   │   └──  githubContributor.service.js
+│   │   ├──  core/
+│   │   │   ├──  auth/
+│   │   │   │   ├──  login.directive.js
+|   |   |   |   ├──  login.directive.spec.js
+|   |   |   |   ├──  login.html
+│   │   │   │   └──  login.less
 │   │   │   │
-│   │   │   │
-│   │   │   └──  navbar/
-│   │   │   │   ├──  navbar.directive.(js|ts|coffee)
-│   │   │   │   ├──  navbar.html
-│   │   │   │   └──  navbar.(scss|styl|less|css)
+│   │   │   ├── navigation/
+│   │   │   │   └── navbar/
+│   │   │   │       ├── navbar.directive.js
+│   │   │   │       ├── navbar.directive.spec.js
+│   │   │   │       ├── navbar.html
+│   │   │   │       └── navbar.less
+│   │   │   └── footer/
+│   │   │       ├── footer.directive.js
+│   │   │       ├── footer.directive.spec.js
+│   │   │       ├── footer.html
+│   │   │       └── footer.less
 │   │   │
-│   │   ├──  main/
-│   │   │   ├──  main.controller.(js|ts|coffee)
-│   │   │   ├──  main.controller.spec.js
-│   │   │   └──  main.html
+│   │   ├── elements/
 │   │   │
-│   │   └──  index.config.(js|ts|coffee)
-│   │   └──  index.constants.(js|ts|coffee)
-│   │   └──  index.module.(js|ts|coffee)
-│   │   └──  index.route.(js|ts|coffee)
-│   │   └──  index.run.(js|ts|coffee)
-│   │   └──  index.(scss|styl|less|css)
+│   │   ├── services/
+│   │   │   └── address_lookup/
+│   │   │       ├── addressLookup.service.js
+│   │   │       └── addressLookup.service.spec.js
+│   │   │
+│   │   ├── theme/
+│   │   │   └── bootstrap_override.less
+│   │   │
+│   │   ├── views/
+│   │   │   └── main/
+│   │   │       ├──  main.controller.(js|ts|coffee)
+│   │   │       ├──  main.controller.spec.js
+│   │   │       └──  main.html
+│   │   │
+│   │   └──  index.config.js
+│   │   └──  index.constants.js
+│   │   └──  index.module.js
+│   │   └──  index.route.js
+│   │   └──  index.run.js
+│   │   └──  index.less
 |   |
 │   ├──  assets/
 │   │   └──  images/
