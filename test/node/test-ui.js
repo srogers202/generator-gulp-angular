@@ -27,9 +27,9 @@ describe('gulp-angular generator ui script', function () {
       };
       generator.files = [];
       generator.uiFiles();
-      generator.files[0].src.should.be.equal('src/app/components/navbar/__none-navbar.html');
+      generator.files[0].src.should.be.equal('src/app/core/navigation/navbar/__none-navbar.html');
       generator.files[1].src.should.be.equal('src/app/_none/__none-index.css');
-      generator.files[3].src.should.be.equal('src/app/components/navbar/__navbar.css');
+      generator.files[3].src.should.be.equal('src/app/core/navigation/navbar/__navbar.css');
       generator.files.length.should.be.equal(4);
     });
 
@@ -41,10 +41,10 @@ describe('gulp-angular generator ui script', function () {
       };
       generator.files = [];
       generator.uiFiles();
-      generator.files[0].src.should.be.equal('src/app/components/navbar/__bootstrap-navbar.html');
-      generator.files[1].src.should.be.equal('src/app/main/__bootstrap.html');
+      generator.files[0].src.should.be.equal('src/app/core/navigation/navbar/__bootstrap-navbar.html');
+      generator.files[1].src.should.be.equal('src/app/views/main/__bootstrap.html');
       generator.files[2].src.should.be.equal('src/app/_bootstrap/__bootstrap-index.scss');
-      generator.files[4].src.should.be.equal('src/app/components/navbar/__navbar.scss');
+      generator.files[4].src.should.be.equal('src/app/core/navigation/navbar/__navbar.scss');
       generator.files.length.should.be.equal(5);
     });
   });

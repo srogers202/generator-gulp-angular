@@ -43,9 +43,18 @@
     "src/app/index.constants.js",
     "src/app/index.run.js",
     "src/index.html",
-    "src/app/main/main.controller.js",
-    "src/app/main/main.controller.spec.js",
-    "src/app/components/navbar/navbar.directive.js",
-    "src/app/components/navbar/navbar.directive.spec.js"
+    "src/app/views/main/main.controller.js",
+    "src/app/views/main/main.controller.spec.js",
+    "src/app/core/auth/login.directive.js",
+    "src/app/core/auth/login.directive.spec.js",
+    "src/app/core/auth/login.less",
+    "src/app/core/auth/login.html",
+    "src/app/core/navigation/navbar/navbar.directive.js",
+    "src/app/core/navigation/navbar/navbar.directive.spec.js",
+    "src/app/core/footer/footer.directive.js",
+    "src/app/core/footer/footer.directive.spec.js",
+    "src/app/core/footer/footer.less",
+    "src/app/core/footer/footer.html",
+    "src/app/services/address_lookup/addressLookup.service.js"
   ]
 }

@@ -8,6 +8,7 @@ var browserSync = require('browser-sync');
 var browserSyncSpa = require('browser-sync-spa');
 
 var util = require('util');
+var _ = require('lodash');
 
 var proxyMiddleware = require('http-proxy-middleware');
 <% if(qrCode) { -%>

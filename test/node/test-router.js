@@ -47,7 +47,7 @@ describe('gulp-angular generator techs script', function () {
     generator.files[0].dest.should.equal('src/app/index.route.testExtension');
 
     generator.files = [];
-    read.withArgs('template/src/app/main/__testUi.html')
+    read.withArgs('template/src/app/views/main/__testUi.html')
       .returns('<div class="container">');
     generator.props.router.module = 'none';
     generator.computeRouter();

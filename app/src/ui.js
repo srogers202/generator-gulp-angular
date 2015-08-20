@@ -8,15 +8,15 @@ module.exports = function(GulpAngularGenerator) {
    */
   GulpAngularGenerator.prototype.uiFiles = function uiFiles() {
     this.files.push({
-      src: 'src/app/components/navbar/__' + this.props.ui.key + '-navbar.html',
-      dest: 'src/app/components/navbar/navbar.html',
+      src: 'src/app/core/navigation/navbar/__' + this.props.ui.key + '-navbar.html',
+      dest: 'src/app/core/navigation/navbar/navbar.html',
       template: false
     });
 
     if(this.props.router.module !== null) {
       this.files.push({
-        src: 'src/app/main/__' + this.props.ui.key + '.html',
-        dest: 'src/app/main/main.html',
+        src: 'src/app/views/main/__' + this.props.ui.key + '.html',
+        dest: 'src/app/views/main/main.html',
         template: true
       });
     }
@@ -28,8 +28,8 @@ module.exports = function(GulpAngularGenerator) {
     });
 
     this.files.push({
-      src: 'src/app/components/navbar/__navbar.' + this.props.cssPreprocessor.extension,
-      dest: 'src/app/components/navbar/navbar.' + this.props.cssPreprocessor.extension,
+      src: 'src/app/core/navigation/navbar/__navbar.' + this.props.cssPreprocessor.extension,
+      dest: 'src/app/core/navigation/navbar/navbar.' + this.props.cssPreprocessor.extension,
       template: false
     });
   };
